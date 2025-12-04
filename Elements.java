@@ -1,14 +1,16 @@
-/*
-    INTERFACE MADE BY:
-    SIDNEI CORREIA JUNIOR [2510102122]
-*/ 
-
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
+// Interface that create elements to be used throught logic and graphical interface
 public interface Elements {
+    JPanel status = new JPanel();
+    JLabel plays = new JLabel();
+    JLabel player = new JLabel();
+
     JComponent circle1 = new Circle(400,50);
     JComponent circle2 = new Circle(400,250);
     JComponent circle3 = new Circle(600,160);

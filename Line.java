@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
 
+
+// Class to create each line that will be connected to the circles
 class Line extends JComponent {
 
     int x1;
