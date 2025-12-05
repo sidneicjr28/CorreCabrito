@@ -134,7 +134,7 @@ public abstract class Logic extends JFrame implements Elements{
                     }
                     
                 } catch (JogadaInvalidaException ex) {
-                    Main.playClick("alert.wav");
+                    Main.playClick("songs/alert.wav");
 
                     JOptionPane.showMessageDialog(null, "Jogada Inválida: " + ex.getMessage(), "Erro de Jogo", JOptionPane.ERROR_MESSAGE);
                     
