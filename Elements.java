@@ -35,4 +35,5 @@ public interface Elements {
 
     JMenuItem menuItem_restart = new JMenuItem("Restart");
     JMenuItem menu_authors = new JMenuItem("Authors");
+    JMenuItem menu_volume = new JMenuItem("Volume");
 }

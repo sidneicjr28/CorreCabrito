@@ -25,6 +25,8 @@ public class Window extends JFrame implements Elements{
         setLayout(null);
 
         // Add MenuBar to the window
+        Elements.menu_game.add(Elements.menu_volume);
+        Elements.menu_volume.addActionListener(Logic.volume_Control());
         Elements.menu_game.add(Elements.menuItem_restart);
         Elements.menu_game.add(Elements.menu_authors);
         Elements.menu_authors.addActionListener(Logic.show_authors());
@@ -87,6 +89,8 @@ public class Window extends JFrame implements Elements{
 
         panel.setVisible(true);
         add(panel);
+        statusPanel();
+
         statusPanel();
     }
 

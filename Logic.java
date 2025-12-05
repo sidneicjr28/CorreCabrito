@@ -114,12 +114,16 @@ public abstract class Logic extends JFrame implements Elements{
                         plays.setText("Rounds: " + contadorJogadas);
                         System.out.println("Rounds: " + contadorJogadas + " | Next Turn: " + turnoAtual);
                        
-                        if (contadorJogadas > 18  && ((Circle) circle2).getLetter().equals(" ")){
+                        if (contadorJogadas > 20  && ((Circle) circle2).getLetter().equals(" ") && ((Circle) circle6).getLetter().equals(" ")){
                             status.setBackground(new Color(255, 0, 0));
                             circle2.setSize(0,0);
                             line5.setVisible(false);
                             line4.setVisible(false);
                             line3.setVisible(false);
+
+                            circle6.setSize(0,0 );
+                            line7.setVisible(false);
+                            line8.setVisible(false);
                         }
                        
                         if (turnoAtual.equals("C")){
@@ -271,6 +275,10 @@ public abstract class Logic extends JFrame implements Elements{
             line4.setVisible(true);
             line3.setVisible(true);
             
+            circle6.setSize(81,81);
+            line7.setVisible(true);
+            line8.setVisible(true);
+
             plays.setText("Rounds: 0");
             player.setText("Current player: Cabrito");
 
@@ -300,6 +308,13 @@ public abstract class Logic extends JFrame implements Elements{
         return e ->{
             Main.playClick("songs/click.wav");
             JOptionPane.showMessageDialog(null, "Graphic interface and half logic made by Sidnei Correia Junior.\nHalf logic made by Adriano Moisés.", "Authors", JOptionPane.INFORMATION_MESSAGE);
+        };
+    }
+
+    protected static ActionListener volume_Control(){
+        return e ->{
+            Main.playClick("songs/click.wav");
+            VolumeControl.getInstance(Main.getBackgroundMusicClip());
         };
     }
 }

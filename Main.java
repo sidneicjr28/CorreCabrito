@@ -5,6 +5,9 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 
 public class Main{
+
+    private static Clip backgroundMusicClip;
+
     // Funcion to play sound effects
     // will receive the song path inside '/songs' folder
     public static void playClick(String song){
@@ -19,6 +22,7 @@ public class Main{
             // Create an AudioInputStream
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
 
+            // Get a Clip (a special type of DataLine that can be loaded before playback)
             Clip clip = AudioSystem.getClip();
 
             // Open the audio input stream and load the data into the clip
@@ -26,7 +30,7 @@ public class Main{
 
             FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
 
-            float volumeReduction = -10.0f; // control de volume
+            float volumeReduction = -10.0f; 
             gainControl.setValue(volumeReduction);
 
         
@@ -51,27 +55,30 @@ public class Main{
             // Create an AudioInputStream
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(musicFile);
 
-            Clip clip = AudioSystem.getClip();
+            backgroundMusicClip = AudioSystem.getClip();
 
-            // Open the audio input stream and load the data into the clip
-            clip.open(audioStream);
+            backgroundMusicClip.open(audioStream);
 
-            FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            FloatControl gainControl = (FloatControl) backgroundMusicClip.getControl(FloatControl.Type.MASTER_GAIN);
 
             float volumeReduction = -25.0f; // control the volume
             gainControl.setValue(volumeReduction);
 
             // Start playing the music
             // clip to repeat forever
-            clip.loop(Clip.LOOP_CONTINUOUSLY);
+            backgroundMusicClip.loop(Clip.LOOP_CONTINUOUSLY);
 
             // Start the playback from the beginning
-            clip.start();
+            backgroundMusicClip.start();
 
         } catch (Exception e) {
             // Handle any errors that might occur during loading or playback
             e.printStackTrace();
         }
+    }
+
+    public static Clip getBackgroundMusicClip() {
+        return backgroundMusicClip;
     }
     public static void main(String[] args){
         Window window = new Window();
